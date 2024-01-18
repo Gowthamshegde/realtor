@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";
 function ForgotPassword() {
-  const [emailAdress, setEmail] = useState("");
+  const [emailAdress, setEmailAdress] = useState("");
 
   function onChange(e) {
-    setEmail(e.target.value);
+    setEmailAdress(e.target.value);
   }
   return (
     <section>
