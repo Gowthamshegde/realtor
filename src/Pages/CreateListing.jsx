@@ -130,6 +130,8 @@ export default function CreateListing() {
               case "running":
                 console.log("Upload is running");
                 break;
+              default:
+                console.log("None of the matched");
             }
           },
           (error) => {
@@ -149,15 +151,12 @@ export default function CreateListing() {
     async function getImgaeUrls() {
       const imgUrls = await Promise.all(
         [...images].map((image) => storeImage(image))
-      )
-        .then((imgUrls) => {
-          return imgUrls;
-        })
-        .catch((error) => {
-          setLoading(false);
-          toast.error("Images not uploaded");
-          return;
-        });
+      ).catch((error) => {
+        setLoading(false);
+        toast.error("Images not uploaded");
+        return;
+      });
+      return imgUrls;
     }
 
     const formDataCopy = {
