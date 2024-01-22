@@ -131,11 +131,12 @@ export default function CreateListing() {
                 console.log("Upload is running");
                 break;
               default:
-                console.log("None of the matched");
+                console.log("");
             }
           },
           (error) => {
             // Handle unsuccessful uploads
+            console.log(error);
             reject(error);
           },
           () => {
@@ -148,20 +149,18 @@ export default function CreateListing() {
         );
       });
     }
-    async function getImgaeUrls() {
-      const imgUrls = await Promise.all(
-        [...images].map((image) => storeImage(image))
-      ).catch((error) => {
-        setLoading(false);
-        toast.error("Images not uploaded");
-        return;
-      });
-      return imgUrls;
-    }
+
+    const imgUrls = await Promise.all(
+      [...images].map((image) => storeImage(image))
+    ).catch((error) => {
+      setLoading(false);
+      toast.error("Images not uploaded");
+      return;
+    });
 
     const formDataCopy = {
       ...formData,
-      imgUrls: await getImgaeUrls(),
+      imgUrls,
       geolocation,
       timestamp: serverTimestamp(),
       userRef: auth.currentUser.uid,
@@ -170,7 +169,7 @@ export default function CreateListing() {
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
     delete formDataCopy.latitude;
     delete formDataCopy.longitude;
-    console.log(formDataCopy);
+    console.log("went");
     const docRef = await addDoc(collection(db, "listings"), formDataCopy);
     setLoading(false);
     toast.success("Listing created");
