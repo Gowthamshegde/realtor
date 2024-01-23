@@ -356,7 +356,7 @@ export default function EditListing() {
             <div className="">
               <p className="text-lg font-semibold">Latitude</p>
               <input
-                type="number"
+                type="text"
                 id="latitude"
                 value={latitude}
                 onChange={onChange}
@@ -369,7 +369,7 @@ export default function EditListing() {
             <div className="">
               <p className="text-lg font-semibold">Longitude</p>
               <input
-                type="number"
+                type="text"
                 id="longitude"
                 value={longitude}
                 onChange={onChange}
