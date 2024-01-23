@@ -167,8 +167,6 @@ export default function CreateListing() {
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
-    delete formDataCopy.latitude;
-    delete formDataCopy.longitude;
     console.log("went");
     const docRef = await addDoc(collection(db, "listings"), formDataCopy);
     setLoading(false);
@@ -317,7 +315,7 @@ export default function CreateListing() {
             <div className="">
               <p className="text-lg font-semibold">Latitude</p>
               <input
-                type="number"
+                type="text"
                 id="latitude"
                 value={latitude}
                 onChange={onChange}
@@ -330,7 +328,7 @@ export default function CreateListing() {
             <div className="">
               <p className="text-lg font-semibold">Longitude</p>
               <input
-                type="number"
+                type="text"
                 id="longitude"
                 value={longitude}
                 onChange={onChange}
@@ -393,7 +391,7 @@ export default function CreateListing() {
               />
               {type === "rent" && (
                 <div className="">
-                  <p className="text-md w-full whitespace-nowrap">$ / Month</p>
+                  <p className="text-md w-full whitespace-nowrap">₹ / Month</p>
                 </div>
               )}
             </div>
@@ -417,7 +415,7 @@ export default function CreateListing() {
                 {type === "rent" && (
                   <div className="">
                     <p className="text-md w-full whitespace-nowrap">
-                      $ / Month
+                      ₹ / Month
                     </p>
                   </div>
                 )}

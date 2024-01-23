@@ -86,7 +86,7 @@ export default function Profile() {
         (listing) => listing.id !== listingID
       );
       setListings(updatedListings);
-      toast.success("Successfully deleted listing");
+      toast.success("Successfully deleted the listing");
     }
   }
   function onEdit(listingID) {
@@ -162,7 +162,7 @@ export default function Profile() {
             <h2 className="text-2xl text-center font-semibold mb-6">
               My Listings
             </h2>
-            <ul className="sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            <ul className="sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
               {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}

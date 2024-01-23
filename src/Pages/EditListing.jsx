@@ -205,8 +205,8 @@ export default function EditListing() {
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
-    delete formDataCopy.latitude;
-    delete formDataCopy.longitude;
+    // delete formDataCopy.latitude;
+    // delete formDataCopy.longitude;
     console.log(formDataCopy);
     const docRef = doc(db, "listings", params.listingId);
     await updateDoc(docRef, formDataCopy);
