@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useNavigate } from "react-router";
 
-export default function Slider() {
+export default function Slider({ clicked }) {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -60,7 +60,9 @@ export default function Slider() {
               }
             >
               <div
-                className="max-w-full  overflow-hidden h-[450px] relative"
+                className={`max-w-full  overflow-hidden h-[450px] relative ${
+                  clicked && "opacity-10"
+                }`}
                 style={{
                   background: `url(${listing.data.imgUrls[0]}) center no-repeat`,
                   backgroundSize: "cover",

@@ -23,8 +23,8 @@ export default function Header() {
     }
   }
   return (
-    <div className="bg-white border-b shadow-sm sticky top-0 z-40">
-      <header className="flex justify-between item-center px-3 max-w-6xl mx-auto">
+    <div className="bg-white border-b shadow-sm sticky top-0 z-40 ">
+      <header className="flex justify-between item-center px-3 max-w-6xl mx-auto ">
         <div className="my-auto">
           <img
             src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
@@ -65,6 +65,7 @@ export default function Header() {
           </ul>
         </div>
       </header>
+      {/* <div className="relative -bottom-8 right-4 h-3 w-4">Click here</div> */}
     </div>
   );
 }
