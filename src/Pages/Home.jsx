@@ -153,7 +153,7 @@ function Home() {
 
         {/* rent */}
         {rentListings && rentListings.length > 0 && (
-          <div className="m-2 mb-6">
+          <div className={`m-2 mb-6 ${chatClick && "opacity-20"}`}>
             <h2 className="text-2xl px-3 mt-6 font-semibold ">
               Placess for rent
             </h2>
@@ -175,7 +175,7 @@ function Home() {
         )}
         {/* sale */}
         {saleListings && saleListings.length > 0 && (
-          <div className="m-2 mb-6">
+          <div className={`m-2 mb-6 ${chatClick && "opacity-20"}`}>
             <h2 className="text-2xl px-3 mt-6 font-semibold ">
               Placess for sale
             </h2>
